@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="input-box">
+        <input type="password" placeholder="Enter password" id="password">
+        <img src="eye-close.png" id="eyeicon">
+    </div>
+
+    <button class="enter-btn" id="enterBtn">Enter</button>
+
+<script>
+    let eyeicon = document.getElementById("eyeicon");
+    let password = document.getElementById("password");
+    let enterBtn = document.getElementById("enterBtn");
+
+    password.addEventListener("input", function() {
+        this.value = this.value.replace(/\D/g, ''); 
+    });
+
+    eyeicon.onclick = function() {
+        if (password.type === "password") {
+            password.type = "text";
+            eyeicon.src = "eye-open.png";
+        } else {
+            password.type = "password";
+            eyeicon.src = "eye-close.png";
+        }
+    }
+
+    enterBtn.onclick = function() {
+        if (password.value === "") {
+            alert("Please enter a password!");
+        } else if (password.value === "010325") {
+            window.location.href = "second page.html"; 
+        } else {
+            alert("Incorrect password. Try again!");
+        }
+    }
+</script>
+
+</body>
+</html>
